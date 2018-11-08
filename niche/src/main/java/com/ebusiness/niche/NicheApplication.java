@@ -24,8 +24,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = "com.ebusiness.niche")
 @SpringBootApplication
-//@EntityScan("com.ebusiness.niche.entity")
-//@EnableJpaRepositories("com.ebusiness.niche.dao")
+@EntityScan("com.ebusiness.niche.entity")
+@EnableJpaRepositories("com.ebusiness.niche.dao")
 public class NicheApplication extends SpringBootServletInitializer implements WebApplicationInitializer{
 
 	public static void main(String[] args) {

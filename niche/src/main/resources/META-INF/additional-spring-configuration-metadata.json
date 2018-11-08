@@ -1,0 +1,72 @@
+{"properties": [
+  {
+    "name": "spring.oracle.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.oracle.datasource.url'"
+  },
+  {
+    "name": "spring.oracle.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.oracle.datasource.username'"
+  },
+  {
+    "name": "spring.oracle.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.oracle.datasource.password'"
+  },
+  {
+    "name": "spring.oracle.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.oracle.datasource.driver-class-name'"
+  },
+  {
+    "name": "spring.basic.enable",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.basic.enable'"
+  },
+  {
+    "name": "spring.mysql.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.url'"
+  },
+  {
+    "name": "spring.mysql.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.username'"
+  },
+  {
+    "name": "spring.mysql.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.password'"
+  },
+  {
+    "name": "spring.mysql.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.driver-class-name'"
+  },
+  {
+    "name": "spring.postgresql.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.postgresql.datasource.url'"
+  },
+  {
+    "name": "spring.postgresql.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.postgresql.datasource.username'"
+  },
+  {
+    "name": "spring.postgresql.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.postgresql.datasource.password'"
+  },
+  {
+    "name": "spring.postgresql.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.postgresql.datasource.driver-class-name'"
+  },
+  {
+    "name": "sprint.jpa.hibernate-ddl-auto",
+    "type": "java.lang.String",
+    "description": "A description for 'sprint.jpa.hibernate-ddl-auto'"
+  }
+]}
