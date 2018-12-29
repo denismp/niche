@@ -23,8 +23,13 @@ import javax.validation.constraints.NotNull;
                 @UniqueConstraint(columnNames = {"name"})
         }
 )
-public class Niche extends History implements Serializable{
+public class Contact extends History implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1329304564033025946L;
+
 	@Id
 	@GeneratedValue
 	private Long id;

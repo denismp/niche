@@ -85,7 +85,7 @@ public class MysqlConfiguration implements WebMvcConfigurer {
 	@Bean(name = "entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean mysqlEntityManagerFactory(EntityManagerFactoryBuilder builder) {
 		return builder.dataSource(mysqlDataSource()).properties(hibernateProperties())
-				.packages("com.example.demo.entity").persistenceUnit("mysqlPU").build();
+				.packages("com.ebusiness.niche.entity").persistenceUnit("mysqlPU").build();
 	}
 
 	/**
@@ -104,7 +104,8 @@ public class MysqlConfiguration implements WebMvcConfigurer {
 		Resource resource = new ClassPathResource("hibernate.properties");
 		try {
 			Properties properties = PropertiesLoaderUtils.loadProperties(resource);
-			properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+//			properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+			properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
 			return properties.entrySet().stream()
 					.collect(Collectors.toMap(e -> e.getKey().toString(), e -> e.getValue()));
 		} catch (IOException e) {

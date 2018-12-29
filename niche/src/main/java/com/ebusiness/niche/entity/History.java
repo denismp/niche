@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
  * @author denisputnam
  *
  */
-@Entity
+//@Entity
 @MappedSuperclass
 public class History implements Serializable {
 	/**
