@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"name"})
+                @UniqueConstraint(columnNames = {"email"})
         }
 )
 public class Contact extends History implements Serializable{
@@ -36,6 +36,18 @@ public class Contact extends History implements Serializable{
 	
 	@Column
 	@NotNull
-	private String name;
+	private String email;
+	
+	@Column
+	@NotNull
+	private String companyName;
+	
+	@Column
+	@NotNull
+	private String webSite;
+	
+	@Column
+	@NotNull
+	private String phone;
 
 }

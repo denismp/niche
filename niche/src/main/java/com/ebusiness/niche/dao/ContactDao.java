@@ -15,7 +15,7 @@ import com.ebusiness.niche.entity.Contact;
  *
  */
 public interface ContactDao extends JpaRepository<Contact, Long> {
-	@Query("SELECT n FROM Contact n WHERE n.name = ?1")
-	public Set<Contact> getByName( String name );
+	@Query("SELECT n FROM Contact n WHERE n.email = ?1")
+	public Set<Contact> getByEmail( String email );
 
 }
