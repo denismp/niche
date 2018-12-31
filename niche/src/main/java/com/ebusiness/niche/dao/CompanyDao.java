@@ -8,14 +8,14 @@ import java.util.Set;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.ebusiness.niche.entity.Contact;
+import com.ebusiness.niche.entity.Company;
 
 /**
  * @author denisputnam
  *
  */
-public interface ContactDao extends JpaRepository<Contact, Long> {
-	@Query("SELECT n FROM Contact n WHERE n.email = ?1")
-	public Set<Contact> getByEmail( String email );
+public interface CompanyDao extends JpaRepository<Company, Long> {
+	@Query("SELECT n FROM Company n WHERE n.email = ?1")
+	public Set<Company> getByEmail( String email );
 
 }

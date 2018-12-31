@@ -3,10 +3,14 @@
  */
 package com.ebusiness.niche.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -58,6 +62,12 @@ public class Product extends History {
 	@Column
 	@NotNull
 	private Integer numberOfCompetitiveSellers;
+	
+	@ManyToOne
+	private Company company;
+	
+	@OneToMany
+	private Set<ContactInfo> contactInfos;
 
 	@Column(length=4096)
 	private String notes;
@@ -132,5 +142,21 @@ public class Product extends History {
 
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public Set<ContactInfo> getContactInfos() {
+		return contactInfos;
+	}
+
+	public void setContactInfos(Set<ContactInfo> contactInfos) {
+		this.contactInfos = contactInfos;
 	}
 }
