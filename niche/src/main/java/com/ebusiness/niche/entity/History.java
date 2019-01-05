@@ -6,8 +6,10 @@ package com.ebusiness.niche.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author denisputnam
@@ -21,7 +23,9 @@ public class History implements Serializable {
 	 */
 	private static final long serialVersionUID = -1136283585074348099L;
 	private String createdBy;
-	private Date createdDate;
+	@Column(nullable = false)
+	@NotNull
+	private Date createdDate = new Date();
 	private String updatedBy;
 	private Date updatedDate;
 	/**

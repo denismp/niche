@@ -68,6 +68,9 @@ public class Product extends History {
 	
 	@OneToMany
 	private Set<ContactInfo> contactInfos;
+	
+	@OneToMany
+	private Set<CriteriaYesNo> criteriaYesNos;
 
 	@Column(length=4096)
 	private String notes;
@@ -158,5 +161,13 @@ public class Product extends History {
 
 	public void setContactInfos(Set<ContactInfo> contactInfos) {
 		this.contactInfos = contactInfos;
+	}
+
+	public Set<CriteriaYesNo> getCriteriaYesNos() {
+		return criteriaYesNos;
+	}
+
+	public void setCriteriaYesNos(Set<CriteriaYesNo> criteriaYesNos) {
+		this.criteriaYesNos = criteriaYesNos;
 	}
 }
