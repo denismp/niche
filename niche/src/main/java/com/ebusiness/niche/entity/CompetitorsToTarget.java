@@ -4,11 +4,13 @@
 package com.ebusiness.niche.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -48,6 +50,9 @@ public class CompetitorsToTarget extends History {
 	@Column(nullable = false)
 	@NotNull
 	private Date dateInventoryLastScouted = new Date();
+	
+	@OneToMany
+	private Set<Product> products;
 
 	public Long getId() {
 		return id;
@@ -87,6 +92,14 @@ public class CompetitorsToTarget extends History {
 
 	public void setDateInventoryLastScouted(Date dateInventoryLastScouted) {
 		this.dateInventoryLastScouted = dateInventoryLastScouted;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 
 }

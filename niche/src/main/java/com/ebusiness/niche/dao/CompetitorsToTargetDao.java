@@ -17,4 +17,7 @@ import com.ebusiness.niche.entity.CompetitorsToTarget;
 public interface CompetitorsToTargetDao extends JpaRepository<CompetitorsToTarget, Long> {
 	@Query("SELECT c FROM CompetitorsToTarget c WHERE c.sellerName = ?1")
 	public Set<CompetitorsToTarget> getBySellerName( String sellerName );
+	
+	@Query("SELECT c FROM CompetitorsToTarget c inner join c.products p WHERE p.asin = ?1")
+	public Set<CompetitorsToTarget> getByAsin( String asin );
 }
