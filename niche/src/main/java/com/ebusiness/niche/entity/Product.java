@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -69,8 +70,8 @@ public class Product extends History {
 	@Column
 	private Double revenuePerMonth;
 	
-	@ManyToOne
-	private Company company;
+	@ManyToMany
+	private Set<Company> companys;
 	
 	@OneToMany
 	private Set<ContactInfo> contactInfos;
@@ -80,6 +81,9 @@ public class Product extends History {
 	
 	@ManyToOne
 	private CompetitorsToTarget competitorsToTarget;
+	
+	@ManyToOne
+	private ShipmentInfo shipmentInfo;
 
 	@Column(length=4096)
 	private String notes;
@@ -164,20 +168,20 @@ public class Product extends History {
 		this.revenuePerMonth = revenuePerMonth;
 	}
 
+	public Set<Company> getCompanys() {
+		return companys;
+	}
+
+	public void setCompanys(Set<Company> companys) {
+		this.companys = companys;
+	}
+
 	public String getNotes() {
 		return notes;
 	}
 
 	public void setNotes(String notes) {
 		this.notes = notes;
-	}
-
-	public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
 	}
 
 	public Set<ContactInfo> getContactInfos() {
@@ -202,5 +206,13 @@ public class Product extends History {
 
 	public void setCompetitorsToTarget(CompetitorsToTarget competitorsToTarget) {
 		this.competitorsToTarget = competitorsToTarget;
+	}
+
+	public ShipmentInfo getShipmentInfo() {
+		return shipmentInfo;
+	}
+
+	public void setShipmentInfo(ShipmentInfo shipmentInfo) {
+		this.shipmentInfo = shipmentInfo;
 	}
 }
