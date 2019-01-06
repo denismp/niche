@@ -63,6 +63,12 @@ public class Product extends History {
 	@NotNull
 	private Integer numberOfCompetitiveSellers;
 	
+	@Column
+	private Integer unitsPerMonth;
+	
+	@Column
+	private Double revenuePerMonth;
+	
 	@ManyToOne
 	private Company company;
 	
@@ -140,6 +146,22 @@ public class Product extends History {
 
 	public void setNumberOfCompetitiveSellers(Integer numberOfCompetitiveSellers) {
 		this.numberOfCompetitiveSellers = numberOfCompetitiveSellers;
+	}
+
+	public Integer getUnitsPerMonth() {
+		return unitsPerMonth;
+	}
+
+	public void setUnitsPerMonth(Integer unitsPerMonth) {
+		this.unitsPerMonth = unitsPerMonth;
+	}
+
+	public Double getRevenuePerMonth() {
+		return revenuePerMonth;
+	}
+
+	public void setRevenuePerMonth(Double revenuePerMonth) {
+		this.revenuePerMonth = revenuePerMonth;
 	}
 
 	public String getNotes() {
