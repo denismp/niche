@@ -9,7 +9,11 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.ebusiness.niche.dao.CompanyDao;
 import com.ebusiness.niche.entity.Company;
 import com.ebusiness.niche.service.CompanyService;
@@ -18,6 +22,8 @@ import com.ebusiness.niche.service.CompanyService;
  * @author denisputnam
  *
  */
+@Service("companyService")
+@Transactional(value="transactionManager")
 public class CompanyServiceImpl implements CompanyService {
 	
 	@PersistenceContext
@@ -57,6 +63,7 @@ public class CompanyServiceImpl implements CompanyService {
 	public Optional<Company> delete(Long id) {
 		Optional<Company> company = null;
 		company = this.companyDao.findById(id);
+		this.companyDao.deleteById(id);
 		return company;
 	}
 
