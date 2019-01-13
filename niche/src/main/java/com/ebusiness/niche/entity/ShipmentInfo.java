@@ -40,8 +40,14 @@ public class ShipmentInfo extends History {
 	private String fnsku;
 	
 	@Column
+	private String sku;
+	
+	@Column
 	@NotNull
 	private Date shipmentDate;
+	
+	@Column
+	private Date skuAssignedDate;
 	
 	@OneToMany
 	private Set<Product> products;
@@ -76,6 +82,30 @@ public class ShipmentInfo extends History {
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public Date getShipmentDate() {
+		return shipmentDate;
+	}
+
+	public void setShipmentDate(Date shipmentDate) {
+		this.shipmentDate = shipmentDate;
+	}
+
+	public Date getSkuAssignedDate() {
+		return skuAssignedDate;
+	}
+
+	public void setSkuAssignedDate(Date skuAssignedDate) {
+		this.skuAssignedDate = skuAssignedDate;
 	}
 
 }

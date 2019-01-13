@@ -84,6 +84,9 @@ public class Product extends History {
 	
 	@ManyToOne
 	private ShipmentInfo shipmentInfo;
+	
+	@ManyToOne
+	private ParentAsin parentAsin;
 
 	@Column(length=4096)
 	private String notes;
@@ -214,5 +217,13 @@ public class Product extends History {
 
 	public void setShipmentInfo(ShipmentInfo shipmentInfo) {
 		this.shipmentInfo = shipmentInfo;
+	}
+
+	public ParentAsin getParentAsin() {
+		return parentAsin;
+	}
+
+	public void setParentAsin(ParentAsin parentAsin) {
+		this.parentAsin = parentAsin;
 	}
 }
