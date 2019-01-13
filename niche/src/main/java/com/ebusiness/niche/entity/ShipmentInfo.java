@@ -41,7 +41,7 @@ public class ShipmentInfo extends History {
 	
 	@Column
 	@NotNull
-	private Date shipmentCreateDate;
+	private Date shipmentDate;
 	
 	@OneToMany
 	private Set<Product> products;
@@ -63,11 +63,11 @@ public class ShipmentInfo extends History {
 	}
 
 	public Date getShipmentCreateDate() {
-		return shipmentCreateDate;
+		return shipmentDate;
 	}
 
 	public void setShipmentCreateDate(Date shipmentCreateDate) {
-		this.shipmentCreateDate = shipmentCreateDate;
+		this.shipmentDate = shipmentCreateDate;
 	}
 
 	public Set<Product> getProducts() {
