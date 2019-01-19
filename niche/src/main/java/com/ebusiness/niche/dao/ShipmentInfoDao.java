@@ -15,9 +15,9 @@ import com.ebusiness.niche.entity.ShipmentInfo;
  *
  */
 public interface ShipmentInfoDao extends JpaRepository<ShipmentInfo, Long> {
-	@Query("SELECT s FROM ShipmentInfo s WHERE s.fnsku = ?1")
+	@Query("SELECT s FROM ShipmentInfoService s WHERE s.fnsku = ?1")
 	public Set<ShipmentInfo> getByfnsku( String fnsku );
 	
-	@Query("SELECT s FROM ShipmentInfo s WHERE s.sku = ?1")
+	@Query("SELECT s FROM ShipmentInfoService s WHERE s.sku = ?1")
 	public Set<ShipmentInfo> getBysku( String sku );
 }
