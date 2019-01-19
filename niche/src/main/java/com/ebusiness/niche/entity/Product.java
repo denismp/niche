@@ -45,7 +45,6 @@ public class Product extends History {
 	private String productPageLink;
 	
 	@Column
-	@NotNull
 	private Integer twentyOnePointScore;
 	
 	@Column
@@ -60,6 +59,7 @@ public class Product extends History {
 	@NotNull
 	private Double totalRevenuePerMonth;
 	
+	// Number of none AMZ FBA sellers at or below the lowest prime price + 1.
 	@Column
 	@NotNull
 	private Integer numberOfCompetitiveSellers;
@@ -69,6 +69,42 @@ public class Product extends History {
 	
 	@Column
 	private Double revenuePerMonth;
+	
+	@Column
+	private Double estimatedProductCost; // should be 50% of FBA
+	
+	@Column
+	private Double actualProductCost;
+	
+	@Column
+	private Double estimatedAmazonFees;
+
+	@Column
+	private Double actualAmazonFees;
+	
+	@Column
+	private Double estimatedShippingCost;
+	
+	@Column
+	private Double actualShippingCost;
+	
+	@Column
+	private Double estimatedProcessingCost;
+	
+	@Column
+	private Double actualProcessingCost;
+	
+	@Column 
+	private Double estimatedProfitMargin; // (Sales price - cost of goods sold)/Sales price -- is a decimal value.  x100 for percent
+	
+	@Column
+	private Double actualProfitMargin;
+	
+	@Column
+	private Double estimatedROI; // estimatedProfitMargin/(product cost + shipping cost + estimatedAmazonFees + processCost) -- should be 30%
+	
+	@Column
+	private Double actualROI;
 	
 	@ManyToMany
 	private Set<Company> companys;
@@ -225,5 +261,109 @@ public class Product extends History {
 
 	public void setParentAsin(ParentAsin parentAsin) {
 		this.parentAsin = parentAsin;
+	}
+
+	public Double getEstimatedProductCost() {
+		return estimatedProductCost;
+	}
+
+	public void setEstimatedProductCost(Double estimatedProductCost) {
+		this.estimatedProductCost = estimatedProductCost;
+	}
+
+	public Double getActualProductCost() {
+		return actualProductCost;
+	}
+
+	public void setActualProductCost(Double actualProductCost) {
+		this.actualProductCost = actualProductCost;
+	}
+
+	public Double getAmazonFees() {
+		return estimatedAmazonFees;
+	}
+
+	public void setAmazonFees(Double amazonFees) {
+		this.estimatedAmazonFees = amazonFees;
+	}
+
+	public Double getEstimatedShippingCost() {
+		return estimatedShippingCost;
+	}
+
+	public void setEstimatedShippingCost(Double estimatedShippingCost) {
+		this.estimatedShippingCost = estimatedShippingCost;
+	}
+
+	public Double getActualShippingCost() {
+		return actualShippingCost;
+	}
+
+	public void setActualShippingCost(Double actualShippingCost) {
+		this.actualShippingCost = actualShippingCost;
+	}
+
+	public Double getEstimatedProcessingCost() {
+		return estimatedProcessingCost;
+	}
+
+	public void setEstimatedProcessingCost(Double estimatedProcessingCost) {
+		this.estimatedProcessingCost = estimatedProcessingCost;
+	}
+
+	public Double getEstimatedProfitMargin() {
+		return estimatedProfitMargin;
+	}
+
+	public void setEstimatedProfitMargin(Double estimatedProfitMargin) {
+		this.estimatedProfitMargin = estimatedProfitMargin;
+	}
+
+	public Double getActualProfitMargin() {
+		return actualProfitMargin;
+	}
+
+	public void setActualProfitMargin(Double actualProfitMargin) {
+		this.actualProfitMargin = actualProfitMargin;
+	}
+
+	public Double getEstimatedROI() {
+		return estimatedROI;
+	}
+
+	public void setEstimatedROI(Double estimatedROI) {
+		this.estimatedROI = estimatedROI;
+	}
+
+	public Double getActualROI() {
+		return actualROI;
+	}
+
+	public void setActualROI(Double actualROI) {
+		this.actualROI = actualROI;
+	}
+
+	public Double getActualProcessingCost() {
+		return actualProcessingCost;
+	}
+
+	public void setActualProcessingCost(Double actualProcessingCost) {
+		this.actualProcessingCost = actualProcessingCost;
+	}
+
+	public Double getEstimatedAmazonFees() {
+		return estimatedAmazonFees;
+	}
+
+	public void setEstimatedAmazonFees(Double estimatedAmazonFees) {
+		this.estimatedAmazonFees = estimatedAmazonFees;
+	}
+
+	public Double getActualAmazonFees() {
+		return actualAmazonFees;
+	}
+
+	public void setActualAmazonFees(Double actualAmazonFees) {
+		this.actualAmazonFees = actualAmazonFees;
 	}
 }
