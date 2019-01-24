@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -66,5 +68,30 @@ public class ProductServiceImpl implements ProductService {
 		this.productDao.deleteById(id);
 		return product;
 	}
-	
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ProductService#findAll()
+	 */
+	@Override
+	public List<Product> findAll() {
+		return this.productDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ProductService#getByAsin(java.lang.String)
+	 */
+	@Override
+	public Set<Product> getByAsin(String asin) {
+		return this.getByAsin(asin);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ProductService#getOne(java.lang.Long)
+	 */
+	@Override
+	public Product getOne(Long id) {
+		return this.getOne(id);
+	}	
 }
