@@ -4,6 +4,7 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -62,6 +63,12 @@ public class CheckPointCriteriaServiceImpl implements CheckPointCriteriaService 
 		Optional<CheckPointCriteria> checkPointCriteria = this.checkPointCriteriaDao.findById(id);
 		this.checkPointCriteriaDao.deleteById(id);
 		return checkPointCriteria;
+	}
+
+	@Override
+	public List<CheckPointCriteria> findAll() {
+		// TODO Auto-generated method stub
+		return this.checkPointCriteriaDao.findAll();
 	}
 
 }
