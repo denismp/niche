@@ -65,9 +65,12 @@ public class CheckPointCriteriaServiceImpl implements CheckPointCriteriaService 
 		return checkPointCriteria;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CheckPointCriteriaService#findAll()
+	 */
 	@Override
 	public List<CheckPointCriteria> findAll() {
-		// TODO Auto-generated method stub
 		return this.checkPointCriteriaDao.findAll();
 	}
 

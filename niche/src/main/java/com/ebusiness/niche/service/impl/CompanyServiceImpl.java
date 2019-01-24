@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ebusiness.niche.dao.CompanyDao;
+import com.ebusiness.niche.entity.CheckPointCriteria;
 import com.ebusiness.niche.entity.Company;
 import com.ebusiness.niche.service.CompanyService;
 
@@ -65,6 +68,33 @@ public class CompanyServiceImpl implements CompanyService {
 		company = this.companyDao.findById(id);
 		this.companyDao.deleteById(id);
 		return company;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompanyService#findAll()
+	 */
+	@Override
+	public List<Company> findAll() {
+		return this.companyDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompanyService#getOne(java.lang.Long)
+	 */
+	@Override
+	public Company getOne(Long id) {
+		return this.companyDao.getOne(id);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompanyService#getByEmail(java.lang.String)
+	 */
+	@Override
+	public Set<Company> getByEmail(String email) {		
+		return this.companyDao.getByEmail(email);
 	}
 
 }
