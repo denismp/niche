@@ -4,6 +4,7 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -64,6 +65,24 @@ public class OurCompanyServiceImpl implements OurCompanyService {
 		ourCompany = this.ourCompanyDao.findById(id);
 		this.ourCompanyDao.deleteById(id);
 		return ourCompany;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.OurCompanyService#findAll()
+	 */
+	@Override
+	public List<OurCompany> findAll() {
+		return this.ourCompanyDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.OurCompanyService#findOne(java.lang.Long)
+	 */
+	@Override
+	public OurCompany findOne(Long id) {
+		return this.ourCompanyDao.getOne(id);
 	}
 
 }
