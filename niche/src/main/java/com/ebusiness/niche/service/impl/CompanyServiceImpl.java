@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ebusiness.niche.dao.CompanyDao;
-import com.ebusiness.niche.entity.CheckPointCriteria;
 import com.ebusiness.niche.entity.Company;
 import com.ebusiness.niche.service.CompanyService;
 

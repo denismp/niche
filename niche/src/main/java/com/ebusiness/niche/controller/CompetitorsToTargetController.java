@@ -31,7 +31,7 @@ public class CompetitorsToTargetController {
 	private CompetitorsToTargetService competitorsToTargetService;
 	
 	@ResponseBody
-	@RequestMapping(value = {"/competitorstotarget"}, method = { RequestMethod.GET })
+	@RequestMapping(value = {"/competitorstotargets"}, method = { RequestMethod.GET })
 	public ResponseEntity<List<CompetitorsToTarget>> getCompetitorsToTarget() {
 		log.info("getCompetitorsToTarget(): Called...");
 		

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import com.ebusiness.niche.entity.CheckPointCriteria;
 import com.ebusiness.niche.entity.Company;
 
 /**

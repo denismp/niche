@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -63,6 +65,33 @@ public class ContactInfoServiceImpl implements ContactInfoService {
 		contactInfo = this.contactInfoDao.findById(id);
 		this.contactInfoDao.deleteById(id);
 		return contactInfo;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ContactInfoService#findAll()
+	 */
+	@Override
+	public List<ContactInfo> findAll() {
+		return this.contactInfoDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ContactInfoService#getByEmail(java.lang.String)
+	 */
+	@Override
+	public Set<ContactInfo> getByEmail(String email) {
+		return this.getByEmail(email);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ContactInfoService#getOne(java.lang.Long)
+	 */
+	@Override
+	public ContactInfo getOne(Long id) {
+		return this.contactInfoDao.getOne(id);
 	}
 
 }
