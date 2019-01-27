@@ -16,6 +16,9 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 /**
  * @author denisputnam
  *
@@ -116,12 +119,15 @@ public class Product extends History {
 	private Set<CriteriaYesNo> criteriaYesNos;
 	
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private CompetitorsToTarget competitorsToTarget;
 	
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private ShipmentInfo shipmentInfo;
 	
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private ParentAsin parentAsin;
 
 	@Column(length=4096)

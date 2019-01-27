@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -63,6 +65,33 @@ public class ParentAsinServiceImpl implements ParentAsinService {
 		Optional<ParentAsin> parentAsin = this.parentAsinDao.findById(id);
 		this.parentAsinDao.deleteById(id);
 		return parentAsin;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ParentAsinService#findAll()
+	 */
+	@Override
+	public List<ParentAsin> findAll() {
+		return this.parentAsinDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ParentAsinService#getByAsin(java.lang.String)
+	 */
+	@Override
+	public Set<ParentAsin> getByAsin(String asin) {
+		return this.parentAsinDao.getByAsin(asin);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ParentAsinService#getOne(java.lang.Long)
+	 */
+	@Override
+	public ParentAsin getOne(Long id) {
+		return this.parentAsinDao.getOne(id);
 	}
 
 }
