@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -64,6 +66,33 @@ public class CriteriaYesNoServiceImpl implements CriteriaYesNoService {
 		criteriaYesNo = this.criteriaYesNoDao.findById(id);
 		this.criteriaYesNoDao.deleteById(id);
 		return criteriaYesNo;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CriteriaYesNoService#findAll()
+	 */
+	@Override
+	public List<CriteriaYesNo> findAll() {
+		return this.criteriaYesNoDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CriteriaYesNoService#getOne(java.lang.Long)
+	 */
+	@Override
+	public CriteriaYesNo getOne(Long id) {
+		return this.criteriaYesNoDao.getOne(id);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CriteriaYesNoService#getByAsin(java.lang.String)
+	 */
+	@Override
+	public Set<CriteriaYesNo> getByAsin(String asin) {
+		return this.getByAsin(asin);
 	}
 
 }
