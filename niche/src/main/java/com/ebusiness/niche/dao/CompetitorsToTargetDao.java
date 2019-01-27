@@ -20,4 +20,7 @@ public interface CompetitorsToTargetDao extends JpaRepository<CompetitorsToTarge
 	
 	@Query("SELECT c FROM CompetitorsToTarget c inner join c.products p WHERE p.asin = ?1")
 	public Set<CompetitorsToTarget> getByAsin( String asin );
+	
+	@Query("SELECT c FROM CompetitorsToTarget c  WHERE c.sellerId = ?1")
+	public Set<CompetitorsToTarget> getBySellerId( String sellerId );
 }

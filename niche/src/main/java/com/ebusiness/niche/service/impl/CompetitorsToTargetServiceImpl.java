@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -63,6 +65,42 @@ public class CompetitorsToTargetServiceImpl implements CompetitorsToTargetServic
 		competitorsToTarget = this.competitorsToTargetDao.findById(id);
 		this.competitorsToTargetDao.deleteById(id);
 		return competitorsToTarget;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompetitorsToTargetService#findAll()
+	 */
+	@Override
+	public List<CompetitorsToTarget> findAll() {
+		return this.competitorsToTargetDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompetitorsToTargetService#getOne(java.lang.Long)
+	 */
+	@Override
+	public CompetitorsToTarget getOne(Long id) {
+		return this.competitorsToTargetDao.getOne(id);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompetitorsToTargetService#getBySellerId(java.lang.String)
+	 */
+	@Override
+	public Set<CompetitorsToTarget> getBySellerId(String sellerId) {
+		return this.competitorsToTargetDao.getBySellerId(sellerId);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.CompetitorsToTargetService#getBySellerName(java.lang.String)
+	 */
+	@Override
+	public Set<CompetitorsToTarget> getBySellerName(String name) {
+		return this.competitorsToTargetDao.getBySellerName(name);
 	}
 
 }
