@@ -4,7 +4,9 @@
 package com.ebusiness.niche.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -63,6 +65,38 @@ public class ShipmentInfoServiceImpl implements ShipmentInfoService {
 		Optional<ShipmentInfo> shipmentInfo = this.shipmentInfoDao.findById(id);
 		this.shipmentInfoDao.deleteById(id);
 		return shipmentInfo;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ShipmentInfoService#findAll()
+	 */
+	@Override
+	public List<ShipmentInfo> findAll() {
+		return this.shipmentInfoDao.findAll();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ShipmentInfoService#getByfnsku(java.lang.String)
+	 */
+	@Override
+	public Set<ShipmentInfo> getByfnsku(String fnsku) {
+		return this.shipmentInfoDao.getByfnsku(fnsku);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.ebusiness.niche.service.ShipmentInfoService#getBysku(java.lang.String)
+	 */
+	@Override
+	public Set<ShipmentInfo> getBysku(String sku) {
+		return this.shipmentInfoDao.getByfnsku(sku);
+	}
+
+	@Override
+	public ShipmentInfo getOne(Long id) {
+		return this.shipmentInfoDao.getOne(id);
 	}
 
 }
