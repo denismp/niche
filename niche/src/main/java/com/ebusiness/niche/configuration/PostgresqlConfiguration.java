@@ -37,14 +37,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author Radouane ROUFID.
  *
  */
-//@Configuration
-//@EnableTransactionManagement
+@Configuration
+@EnableTransactionManagement
 //@EnableJpaRepositories(
 //		entityManagerFactoryRef = "postgresqlEntityManager", 
 //		transactionManagerRef = "postgresqlTransactionManager", 
 ////		basePackages = "com.roufid.tutorial.dao.postgresql"
 //		basePackages = "com.example.dao"
 //)
+@EnableJpaRepositories(
+		entityManagerFactoryRef = "transactionManager", 
+		transactionManagerRef = "postgresqlTransactionManager", 
+		basePackages = {
+		"com.ebusiness.niche.dao" })
 public class PostgresqlConfiguration {
 
 	/**
@@ -53,7 +58,7 @@ public class PostgresqlConfiguration {
 	 * @return datasource.
 	 */
 	@Bean
-//	@Primary
+	@Primary
 	@ConfigurationProperties(prefix = "spring.postgresql.datasource")
 	public DataSource postgresqlDataSource() {
 		return DataSourceBuilder
@@ -68,19 +73,35 @@ public class PostgresqlConfiguration {
 	 * @return LocalContainerEntityManagerFactoryBean.
 	 */
 //	@Primary
-	@Bean(name = "postgresqlEntityManager")
-	public LocalContainerEntityManagerFactoryBean postgresqlEntityManagerFactory(EntityManagerFactoryBuilder builder) {
-		return builder
-					.dataSource(postgresqlDataSource())
-					.properties(hibernateProperties())
-//					.packages(Book.class)  //TODO need to add this back for the entities.
-					.persistenceUnit("postgresqlPU")
-					.build();
+//	@Bean(name = "postgresqlEntityManager")
+//	public LocalContainerEntityManagerFactoryBean postgresqlEntityManagerFactory(EntityManagerFactoryBuilder builder) {
+//		return builder
+//					.dataSource(postgresqlDataSource())
+//					.properties(hibernateProperties())
+////					.packages(Book.class)  //TODO need to add this back for the entities.
+//					.persistenceUnit("postgresqlPU")
+//					.build();
+//	}
+	@Primary
+	@Bean(name = "entityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean mysqlEntityManagerFactory(EntityManagerFactoryBuilder builder) {
+		return builder.dataSource(postgresqlDataSource()).properties(hibernateProperties())
+				.packages("com.ebusiness.niche.entity").persistenceUnit("postgresqlPU").build();
 	}
 
 //	@Primary
-	@Bean(name = "postgresqlTransactionManager")
-	public PlatformTransactionManager postgresqlTransactionManager(@Qualifier("postgresqlEntityManager") EntityManagerFactory entityManagerFactory) {
+//	@Bean(name = "postgresqlTransactionManager")
+//	public PlatformTransactionManager postgresqlTransactionManager(@Qualifier("transactionManager") EntityManagerFactory entityManagerFactory) {
+//		return new JpaTransactionManager(entityManagerFactory);
+//	}
+	/**
+	 * @param entityManagerFactory
+	 * @return
+	 */
+	@Primary
+	@Bean(name = "transactionManager")
+	public PlatformTransactionManager transactionManager(
+			@Qualifier("entityManagerFactory") EntityManagerFactory entityManagerFactory) {
 		return new JpaTransactionManager(entityManagerFactory);
 	}
 

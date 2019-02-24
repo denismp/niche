@@ -48,18 +48,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Radouane ROUFID.
  *
  */
-@Configuration
-@EnableTransactionManagement
+//@Configuration
+//@EnableTransactionManagement
 // @EnableJpaRepositories(
 // entityManagerFactoryRef = "mysqlEntityManager",
 // transactionManagerRef = "mysqlTransactionManager",
 // basePackages = "com.example.demo.dao"
 // )
-@EnableJpaRepositories(
-		entityManagerFactoryRef = "entityManagerFactory", 
-		transactionManagerRef = "transactionManager", 
-		basePackages = {
-		"com.ebusiness.niche.dao" })
+//@EnableJpaRepositories(
+//		entityManagerFactoryRef = "entityManagerFactory", 
+//		transactionManagerRef = "transactionManager", 
+//		basePackages = {
+//		"com.ebusiness.niche.dao" })
 public class MysqlConfiguration implements WebMvcConfigurer {
 
 	/**
