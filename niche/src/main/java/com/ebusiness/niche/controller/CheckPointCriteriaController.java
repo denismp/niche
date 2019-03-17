@@ -30,7 +30,7 @@ public class CheckPointCriteriaController {
 	private CheckPointCriteriaService checkpointCriteriaService;
 	
 	@ResponseBody
-	@RequestMapping(value = {"/checkpointcriterias"}, method = { RequestMethod.GET })
+	@RequestMapping(value = {"/checkpointcriteria"}, method = { RequestMethod.GET })
 	public ResponseEntity<List<CheckPointCriteria>> getCheckPointCriterias() {
 		log.info("getCheckPointCriterias(): Called...");
 		
