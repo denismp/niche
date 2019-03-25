@@ -110,6 +110,7 @@ public class Product extends History {
 	private Double actualROI;
 	
 	@ManyToMany
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Set<Company> companys;
 	
 	@OneToMany
