@@ -51,6 +51,9 @@ public class CompetitorsToTarget extends History {
 	@NotNull
 	private Date dateInventoryLastScouted = new Date();
 	
+	@Column(length=2000)
+	private String notes;
+	
 	@OneToMany
 	private Set<Product> products;
 
@@ -100,6 +103,14 @@ public class CompetitorsToTarget extends History {
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 
 }
