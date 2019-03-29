@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 /**
  * @author denisputnam
  *
@@ -47,6 +50,7 @@ public class ContactInfo extends History {
 	private String notes;
 	
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Product product;
 
 	public Long getId() {
