@@ -114,9 +114,11 @@ public class Product extends History {
 	private Set<Company> companys;
 	
 	@OneToMany
+//	@JsonProperty(access = Access.WRITE_ONLY)
 	private Set<ContactInfo> contactInfos;
 	
 	@OneToMany
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Set<CriteriaYesNo> criteriaYesNos;
 	
 	@ManyToOne
