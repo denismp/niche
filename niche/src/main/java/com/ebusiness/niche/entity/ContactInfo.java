@@ -39,6 +39,9 @@ public class ContactInfo extends History {
 	private Long id;
 	
 	@Column
+	private String name;
+	
+	@Column
 	@NotNull
 	private String email;
 	
@@ -61,7 +64,7 @@ public class ContactInfo extends History {
 	private String stateOrProvince;
 	
 	@Column
-	private String postalCoed;
+	private String postalCode;
 	
 	@Column
 	private String country;
@@ -166,12 +169,12 @@ public class ContactInfo extends History {
 		this.stateOrProvince = stateOrProvince;
 	}
 
-	public String getPostalCoed() {
-		return postalCoed;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
-	public void setPostalCoed(String postalCoed) {
-		this.postalCoed = postalCoed;
+	public void setPostalCode(String postalCoed) {
+		this.postalCode = postalCoed;
 	}
 
 	public String getCountry() {
@@ -180,6 +183,14 @@ public class ContactInfo extends History {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
