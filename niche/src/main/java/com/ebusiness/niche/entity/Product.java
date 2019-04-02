@@ -45,6 +45,12 @@ public class Product extends History {
 	private String asin;
 	
 	@Column
+	private String fnsku;
+	
+	@Column
+	private String sku;
+	
+	@Column
 	private String productPageLink;
 	
 	@Column
@@ -374,5 +380,21 @@ public class Product extends History {
 
 	public void setActualAmazonFees(Double actualAmazonFees) {
 		this.actualAmazonFees = actualAmazonFees;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public String getFnsku() {
+		return fnsku;
+	}
+
+	public void setFnsku(String fnsku) {
+		this.fnsku = fnsku;
 	}
 }
