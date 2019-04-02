@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -43,12 +44,6 @@ public class Product extends History {
 	@Column
 	@NotNull
 	private String asin;
-	
-	@Column
-	private String fnsku;
-	
-	@Column
-	private String sku;
 	
 	@Column
 	private String productPageLink;
@@ -131,7 +126,7 @@ public class Product extends History {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private CompetitorsToTarget competitorsToTarget;
 	
-	@ManyToOne
+	@OneToOne(mappedBy="product")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private ShipmentInfo shipmentInfo;
 	
@@ -380,21 +375,5 @@ public class Product extends History {
 
 	public void setActualAmazonFees(Double actualAmazonFees) {
 		this.actualAmazonFees = actualAmazonFees;
-	}
-
-	public String getSku() {
-		return sku;
-	}
-
-	public void setSku(String sku) {
-		this.sku = sku;
-	}
-
-	public String getFnsku() {
-		return fnsku;
-	}
-
-	public void setFnsku(String fnsku) {
-		this.fnsku = fnsku;
 	}
 }

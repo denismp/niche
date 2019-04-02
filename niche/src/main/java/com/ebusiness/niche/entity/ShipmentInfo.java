@@ -4,13 +4,12 @@
 package com.ebusiness.niche.entity;
 
 import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -22,7 +21,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"fnsku"})
+                @UniqueConstraint(columnNames = {"shipmentId"})
         }
 )
 public class ShipmentInfo extends History {
@@ -37,10 +36,16 @@ public class ShipmentInfo extends History {
 	private Long id;
 	
 	@Column
+	private String shipmentId;
+	
+	@Column
 	private String fnsku;
 	
 	@Column
 	private String sku;
+	
+	@Column
+	private Integer numberUnits;
 	
 	@Column
 	@NotNull
@@ -49,8 +54,10 @@ public class ShipmentInfo extends History {
 	@Column
 	private Date skuAssignedDate;
 	
-	@OneToMany
-	private Set<Product> products;
+	@OneToOne
+//	@JsonProperty(access = Access.WRITE_ONLY)
+	@PrimaryKeyJoinColumn
+	private Product product;
 
 	public Long getId() {
 		return id;
@@ -59,7 +66,30 @@ public class ShipmentInfo extends History {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public String getShipmentId() {
+		return shipmentId;
+	}
 
+	public void setShipmentId(String shipmentId) {
+		this.shipmentId = shipmentId;
+	}
+
+	public Integer getNumberUnits() {
+		return numberUnits;
+	}
+
+	public void setNumberUnits(Integer numberUnits) {
+		this.numberUnits = numberUnits;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
 	public String getFnsku() {
 		return fnsku;
 	}
@@ -74,14 +104,6 @@ public class ShipmentInfo extends History {
 
 	public void setShipmentCreateDate(Date shipmentCreateDate) {
 		this.shipmentDate = shipmentCreateDate;
-	}
-
-	public Set<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(Set<Product> products) {
-		this.products = products;
 	}
 
 	public String getSku() {
