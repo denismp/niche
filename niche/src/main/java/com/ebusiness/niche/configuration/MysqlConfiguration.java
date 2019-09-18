@@ -77,8 +77,7 @@ public class MysqlConfiguration implements WebMvcConfigurer {
 	/**
 	 * Entity manager definition.
 	 * 
-	 * @param builder
-	 *            an EntityManagerFactoryBuilder.
+	 * @param builder an EntityManagerFactoryBuilder.
 	 * @return LocalContainerEntityManagerFactoryBean.
 	 */
 	@Primary
@@ -123,19 +122,37 @@ public class MysqlConfiguration implements WebMvcConfigurer {
 			}
 		};
 	}
-	
+
+//	@Bean
+//	public FilterRegistrationBean<CorsFilter> corsFilter() {
+//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//		CorsConfiguration config = new CorsConfiguration();
+//		config.setAllowCredentials(true);
+//		config.addAllowedOrigin("http://localhost:4200");
+//		config.addAllowedHeader("*");
+//		config.addAllowedMethod("*");
+//		source.registerCorsConfiguration("/**", config);
+//		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
+//		bean.setOrder(0);
+//		return bean;
+//	}
+
 	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilter() {
+	public CorsFilter corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
 		config.addAllowedOrigin("http://localhost:4200");
+		config.addAllowedOrigin("*");
 		config.addAllowedHeader("*");
-		config.addAllowedMethod("*");
+		config.addAllowedMethod("OPTIONS");
+		config.addAllowedMethod("GET");
+		config.addAllowedMethod("POST");
+		config.addAllowedMethod("PATCH");
+		config.addAllowedMethod("PUT");
+		config.addAllowedMethod("DELETE");
 		source.registerCorsConfiguration("/**", config);
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
-		bean.setOrder(0);
-		return bean;
+		return new CorsFilter(source);
 	}
 
 //	@Bean
