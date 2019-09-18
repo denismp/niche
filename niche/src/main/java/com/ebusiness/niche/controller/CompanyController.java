@@ -81,7 +81,7 @@ public class CompanyController {
 //	@ResponseBody
 	@CrossOrigin(origins = { "http://localhost:4200" })
 	@RequestMapping(value = { "/company/{id}" }, headers = "Accept=application/json", method = { RequestMethod.PUT })
-	public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, @Valid @RequestBody Company company) {
+	public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, @RequestBody Company company) {
 		log.info("updateCompany(): Called...");
 		log.info("id=" + id);
 
