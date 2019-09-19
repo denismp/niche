@@ -61,7 +61,6 @@ public class Company extends History implements Serializable{
 	
 	@ManyToMany(mappedBy="companys")
 	@JsonProperty(access = Access.WRITE_ONLY)
-//	@JsonIgnore
 	Set<Product> products;
 	
 	public String getNotes() {
