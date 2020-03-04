@@ -78,14 +78,13 @@ public class CompanyServiceImpl implements CompanyService {
 		return this.companyDao.findAll();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see com.ebusiness.niche.service.CompanyService#getOne(java.lang.Long)
-	 */
-	@Override
-	public Company getOne(Long id) {
-		return this.companyDao.getOne(id);
-	}
+//	/*
+//	 * (non-Javadoc)
+//	 * @see com.ebusiness.niche.service.CompanyService#getOne(java.lang.Long)
+//	 */
+//	public Company getOne(Long id) {
+//		return this.companyDao.getOne(id);
+//	}
 
 	/*
 	 * (non-Javadoc)
@@ -94,6 +93,12 @@ public class CompanyServiceImpl implements CompanyService {
 	@Override
 	public Set<Company> getByEmail(String email) {		
 		return this.companyDao.getByEmail(email);
+	}
+
+	@Override
+	public Optional<Company> findById(Long id) {
+		// TODO Auto-generated method stub
+		return this.companyDao.findById(id);
 	}
 
 }

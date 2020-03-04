@@ -15,6 +15,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 /**
  * @author denisputnam
  *
@@ -56,6 +60,7 @@ public class Company extends History implements Serializable{
 	private String notes;
 	
 	@ManyToMany(mappedBy="companys")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	Set<Product> products;
 	
 	public String getNotes() {
@@ -106,6 +111,7 @@ public class Company extends History implements Serializable{
 		this.phone = phone;
 	}
 
+	@JsonIgnore
 	public Set<Product> getProducts() {
 		return products;
 	}

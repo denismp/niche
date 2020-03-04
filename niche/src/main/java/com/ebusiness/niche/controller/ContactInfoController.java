@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ebusiness.niche.entity.ContactInfo;
 import com.ebusiness.niche.service.ContactInfoService;
-import com.sun.istack.internal.logging.Logger;
+//import com.sun.istack.internal.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author denisputnam
@@ -26,7 +28,7 @@ import com.sun.istack.internal.logging.Logger;
 @RequestMapping( value = "/niche" )
 public class ContactInfoController {
 	
-	private final Logger log = Logger.getLogger(this.getClass());
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private ContactInfoService contactInfoService;

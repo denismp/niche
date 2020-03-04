@@ -19,5 +19,6 @@ public interface CompanyService {
 	public Optional<Company> delete(Long id);
 	public List<Company> findAll();
 	public Set<Company> getByEmail(String email);
-	public Company getOne(Long id);
+//	public Company getOne(Long id);
+	public Optional<Company> findById(Long id);
 }

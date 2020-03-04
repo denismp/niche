@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -114,16 +115,18 @@ public class Product extends History {
 	private Set<Company> companys;
 	
 	@OneToMany
+//	@JsonProperty(access = Access.WRITE_ONLY)
 	private Set<ContactInfo> contactInfos;
 	
 	@OneToMany
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Set<CriteriaYesNo> criteriaYesNos;
 	
 	@ManyToOne
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private CompetitorsToTarget competitorsToTarget;
 	
-	@ManyToOne
+	@OneToOne(mappedBy="product")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private ShipmentInfo shipmentInfo;
 	

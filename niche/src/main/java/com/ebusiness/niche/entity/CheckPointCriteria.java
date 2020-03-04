@@ -15,6 +15,9 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 /**
  * @author denisputnam
  *
@@ -45,6 +48,7 @@ public class CheckPointCriteria extends History {
 	private Integer points;
 	
 	@ManyToMany
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Set<CriteriaYesNo> criteriaYesNos = new HashSet<CriteriaYesNo>(0);
 
 	public Long getId() {
